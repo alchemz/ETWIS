@@ -69,6 +69,15 @@ public class PlayerInput : MonoBehaviour
         {
             SendMessage("ToggleRun");
         }
-     
     }
+    
+    public void OnTriggerEnter(Collider other){
+    if(other.CompareTag("Water"))
+      SendMessage("ISSwimming", true);
+    }
+    
+    public void OnTriggerExit(Collider other){
+    if(other.CompareTag("Water"))
+    SendMessage("ISSwimming", false);
+   }
 }
